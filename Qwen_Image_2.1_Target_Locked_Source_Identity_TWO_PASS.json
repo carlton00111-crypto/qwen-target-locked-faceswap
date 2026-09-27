@@ -1,0 +1,877 @@
+{
+  "id": "54bb395d-3e60-4c94-b525-85523901575b",
+  "revision": 1,
+  "last_node_id": 513,
+  "last_link_id": 821,
+  "nodes": [
+    {
+      "id": 486,
+      "type": "VAELoader",
+      "pos": [
+        250,
+        3380
+      ],
+      "size": [
+        510,
+        70
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            805,
+            810,
+            814,
+            820
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "qwen_image_2.1_vae_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "qwen_image_2.1_vae_bf16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+      }
+    },
+    {
+      "id": 493,
+      "type": "CLIPLoader",
+      "pos": [
+        250,
+        3150
+      ],
+      "size": [
+        510,
+        120
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            802,
+            811
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "CLIPLoader",
+        "models": [
+          {
+            "name": "qwen3vl_8b_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "qwen3vl_8b_int8_convrot.safetensors",
+        "qwen_image",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+        "type": "qwen_image",
+        "device": "default"
+      }
+    },
+    {
+      "id": 496,
+      "type": "UNETLoader",
+      "pos": [
+        250,
+        2920
+      ],
+      "size": [
+        510,
+        90
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            801,
+            815
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "qwen_image_2.1_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "qwen_image_2.1_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "qwen_image_2.1_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 475,
+      "type": "LoadImage",
+      "pos": [
+        -360,
+        2200
+      ],
+      "size": [
+        405.1115223502777,
+        421.5238355624738
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            803,
+            812
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "",
+        "upload": "image"
+      },
+      "title": "IMAGE 1 — SOURCE IDENTITY ONLY"
+    },
+    {
+      "id": 510,
+      "type": "LoadImage",
+      "pos": [
+        -360,
+        2780
+      ],
+      "size": [
+        405.1115223502777,
+        421.5238355624738
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            804
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "",
+        "upload": "image"
+      },
+      "title": "IMAGE 2 — TARGET / ABSOLUTE GEOMETRY ANCHOR"
+    },
+    {
+      "id": 491,
+      "type": "TextEncodeQwenImage21",
+      "pos": [
+        850,
+        2200
+      ],
+      "size": [
+        693.0697967831477,
+        756.1350993088331
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 802
+        },
+        {
+          "name": "images.image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 803
+        },
+        {
+          "name": "images.image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 804
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 805
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            806
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            807
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            808
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "TextEncodeQwenImage21"
+      },
+      "widgets_values": [
+        "FACE IDENTITY TRANSFER — TARGET-LOCKED MODE. <image1> is SOURCE IDENTITY ONLY. Use <image1> only to identify the person's facial identity: identity-specific facial features, facial proportions, eyes, eyebrows, nose, lips, and overall likeness. <image2> is the ABSOLUTE TARGET / GEOMETRY / COMPOSITION ANCHOR and must remain structurally unchanged. Replace only the facial identity of the person in <image2> with the identity from <image1>. DO NOT transfer pose, expression, gaze direction, pupil placement, eyelid openness, head angle, head tilt, hair, hairline, ears, neck, body, hands, clothing, phone, background, camera perspective, crop, framing, lighting direction, shadows, or scene composition from <image1>. Preserve the exact target face geometry from <image2>: exact head orientation, facial perspective, expression, mouth opening and mouth shape, eyebrow position, eyelid shape, eye opening, iris position, pupil position, gaze vector, eye convergence, catchlight placement, cheek perspective, jaw perspective, and chin direction. Treat the left and right eyes in <image2> as fixed independent landmarks; do not center the pupils and do not symmetrize the eyes. Keep the exact gaze of <image2>. Preserve <image2> pixel composition everywhere outside the facial identity region. Blend the new identity naturally into the target with matching skin tone, target lighting, target shadows, target highlights, sharpness, grain, and realistic skin texture. The final result must look like the person from <image1> naturally photographed in the exact scene, pose, expression, gaze, and camera geometry of <image2>.",
+        "changed pose, changed head angle, changed head tilt, changed expression, changed gaze, centered pupils, symmetrical eyes, cross-eyed, wall-eyed, mismatched eye direction, altered eyelids, altered mouth shape, source pose leakage, source expression leakage, source gaze leakage, source hairstyle leakage, changed hair, changed hairline, changed ears, changed neck, changed body, changed outfit, changed hands, changed phone, changed background, changed crop, changed framing, changed perspective, changed lighting, changed shadows, beautified face geometry, redesigned face, distorted face, extra facial features, blurry face, low quality",
+        1056
+      ],
+      "widgets_values_named": {
+        "prompt": "FACE IDENTITY TRANSFER — TARGET-LOCKED MODE. <image1> is SOURCE IDENTITY ONLY. Use <image1> only to identify the person's facial identity: identity-specific facial features, facial proportions, eyes, eyebrows, nose, lips, and overall likeness. <image2> is the ABSOLUTE TARGET / GEOMETRY / COMPOSITION ANCHOR and must remain structurally unchanged. Replace only the facial identity of the person in <image2> with the identity from <image1>. DO NOT transfer pose, expression, gaze direction, pupil placement, eyelid openness, head angle, head tilt, hair, hairline, ears, neck, body, hands, clothing, phone, background, camera perspective, crop, framing, lighting direction, shadows, or scene composition from <image1>. Preserve the exact target face geometry from <image2>: exact head orientation, facial perspective, expression, mouth opening and mouth shape, eyebrow position, eyelid shape, eye opening, iris position, pupil position, gaze vector, eye convergence, catchlight placement, cheek perspective, jaw perspective, and chin direction. Treat the left and right eyes in <image2> as fixed independent landmarks; do not center the pupils and do not symmetrize the eyes. Keep the exact gaze of <image2>. Preserve <image2> pixel composition everywhere outside the facial identity region. Blend the new identity naturally into the target with matching skin tone, target lighting, target shadows, target highlights, sharpness, grain, and realistic skin texture. The final result must look like the person from <image1> naturally photographed in the exact scene, pose, expression, gaze, and camera geometry of <image2>.",
+        "negative_prompt": "changed pose, changed head angle, changed head tilt, changed expression, changed gaze, centered pupils, symmetrical eyes, cross-eyed, wall-eyed, mismatched eye direction, altered eyelids, altered mouth shape, source pose leakage, source expression leakage, source gaze leakage, source hairstyle leakage, changed hair, changed hairline, changed ears, changed neck, changed body, changed outfit, changed hands, changed phone, changed background, changed crop, changed framing, changed perspective, changed lighting, changed shadows, beautified face geometry, redesigned face, distorted face, extra facial features, blurry face, low quality",
+        "resolution": 1056
+      },
+      "title": "PASS 1 — Identity Transfer / Target Geometry Lock"
+    },
+    {
+      "id": 509,
+      "type": "KSampler",
+      "pos": [
+        1650,
+        2350
+      ],
+      "size": [
+        450.47873800116577,
+        739.6146983032819
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 801
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 806
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 807
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 808
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            809
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        0,
+        "randomize",
+        30,
+        1,
+        "euler",
+        "simple",
+        0.34
+      ],
+      "widgets_values_named": {
+        "seed": 0,
+        "control_after_generate": "randomize",
+        "steps": 30,
+        "cfg": 1,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 0.34
+      },
+      "title": "PASS 1 — Conservative Identity Merge"
+    },
+    {
+      "id": 488,
+      "type": "VAEDecode",
+      "pos": [
+        2200,
+        2450
+      ],
+      "size": [
+        150.34033068236886,
+        63.79331758655371
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 809
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 810
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            813
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "VAEDecode"
+      },
+      "title": "PASS 1 — Decode"
+    },
+    {
+      "id": 508,
+      "type": "SaveImageAdvanced",
+      "pos": [
+        2500,
+        3250
+      ],
+      "size": [
+        813.8322927947793,
+        939.7712663828274
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 821
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "SaveImageAdvanced"
+      },
+      "widgets_values": [
+        "Qwen_TargetLocked_SourceIdentity",
+        "png",
+        "8-bit",
+        "sRGB"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "Qwen_TargetLocked_SourceIdentity",
+        "format": "png",
+        "format.bit_depth": "8-bit",
+        "format.input_color_space": "sRGB"
+      },
+      "title": "SAVE — FINAL TARGET-LOCKED FACE SWAP"
+    },
+    {
+      "id": 511,
+      "type": "TextEncodeQwenImage21",
+      "pos": [
+        850,
+        3250
+      ],
+      "size": [
+        693.0697967831477,
+        756.1350993088331
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 811
+        },
+        {
+          "name": "images.image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 812
+        },
+        {
+          "name": "images.image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 813
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 814
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            816
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            817
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            818
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "TextEncodeQwenImage21"
+      },
+      "widgets_values": [
+        "SECOND-PASS FACE STABILIZATION. <image1> remains SOURCE IDENTITY ONLY. <image2> is the PASS-1 TARGET RESULT and is now the absolute visual anchor. Keep <image2> unchanged except for subtle identity-consistency and blending corrections inside the face. Preserve exactly the current head angle, face perspective, expression, mouth shape, eyelid opening, iris location, pupil location, gaze direction, eye convergence, hair, body, outfit, hands, phone, background, crop, camera angle, lighting, shadows, and composition from <image2>. Do not re-pose or beautify the face. Do not center or symmetrize the eyes. Use <image1> only to strengthen facial identity where needed. Make minimal corrections so the face clearly resembles <image1> while retaining the exact geometry and gaze already present in <image2>. Improve only natural skin integration, facial identity consistency, and local face detail.",
+        "geometry change, pose change, head angle change, expression change, gaze change, centered pupils, symmetrical eyes, cross-eyed, wall-eyed, changed eyelids, changed mouth, changed hair, changed body, changed outfit, changed background, changed framing, changed lighting, source pose leakage, source expression leakage, over-editing, face redesign, beautification drift, distorted eyes, distorted face, blurry face",
+        1056
+      ],
+      "widgets_values_named": {
+        "prompt": "SECOND-PASS FACE STABILIZATION. <image1> remains SOURCE IDENTITY ONLY. <image2> is the PASS-1 TARGET RESULT and is now the absolute visual anchor. Keep <image2> unchanged except for subtle identity-consistency and blending corrections inside the face. Preserve exactly the current head angle, face perspective, expression, mouth shape, eyelid opening, iris location, pupil location, gaze direction, eye convergence, hair, body, outfit, hands, phone, background, crop, camera angle, lighting, shadows, and composition from <image2>. Do not re-pose or beautify the face. Do not center or symmetrize the eyes. Use <image1> only to strengthen facial identity where needed. Make minimal corrections so the face clearly resembles <image1> while retaining the exact geometry and gaze already present in <image2>. Improve only natural skin integration, facial identity consistency, and local face detail.",
+        "negative_prompt": "geometry change, pose change, head angle change, expression change, gaze change, centered pupils, symmetrical eyes, cross-eyed, wall-eyed, changed eyelids, changed mouth, changed hair, changed body, changed outfit, changed background, changed framing, changed lighting, source pose leakage, source expression leakage, over-editing, face redesign, beautification drift, distorted eyes, distorted face, blurry face",
+        "resolution": 1056
+      },
+      "title": "PASS 2 — Eye / Expression / Blend Stabilization"
+    },
+    {
+      "id": 512,
+      "type": "KSampler",
+      "pos": [
+        1650,
+        3350
+      ],
+      "size": [
+        450.47873800116577,
+        739.6146983032819
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 815
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 816
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 817
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 818
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            819
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        0,
+        "randomize",
+        22,
+        1,
+        "euler",
+        "simple",
+        0.18
+      ],
+      "widgets_values_named": {
+        "seed": 0,
+        "control_after_generate": "randomize",
+        "steps": 22,
+        "cfg": 1,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 0.18
+      },
+      "title": "PASS 2 — Low-Denoise Stabilization"
+    },
+    {
+      "id": 513,
+      "type": "VAEDecode",
+      "pos": [
+        2200,
+        3450
+      ],
+      "size": [
+        150.34033068236886,
+        63.79331758655371
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 819
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 820
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            821
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "VAEDecode"
+      },
+      "title": "PASS 2 — Final Decode"
+    }
+  ],
+  "links": [
+    [
+      801,
+      496,
+      0,
+      509,
+      0,
+      "MODEL"
+    ],
+    [
+      802,
+      493,
+      0,
+      491,
+      0,
+      "CLIP"
+    ],
+    [
+      803,
+      475,
+      0,
+      491,
+      1,
+      "IMAGE"
+    ],
+    [
+      804,
+      510,
+      0,
+      491,
+      2,
+      "IMAGE"
+    ],
+    [
+      805,
+      486,
+      0,
+      491,
+      3,
+      "VAE"
+    ],
+    [
+      806,
+      491,
+      0,
+      509,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      807,
+      491,
+      1,
+      509,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      808,
+      491,
+      2,
+      509,
+      3,
+      "LATENT"
+    ],
+    [
+      809,
+      509,
+      0,
+      488,
+      0,
+      "LATENT"
+    ],
+    [
+      810,
+      486,
+      0,
+      488,
+      1,
+      "VAE"
+    ],
+    [
+      811,
+      493,
+      0,
+      511,
+      0,
+      "CLIP"
+    ],
+    [
+      812,
+      475,
+      0,
+      511,
+      1,
+      "IMAGE"
+    ],
+    [
+      813,
+      488,
+      0,
+      511,
+      2,
+      "IMAGE"
+    ],
+    [
+      814,
+      486,
+      0,
+      511,
+      3,
+      "VAE"
+    ],
+    [
+      815,
+      496,
+      0,
+      512,
+      0,
+      "MODEL"
+    ],
+    [
+      816,
+      511,
+      0,
+      512,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      817,
+      511,
+      1,
+      512,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      818,
+      511,
+      2,
+      512,
+      3,
+      "LATENT"
+    ],
+    [
+      819,
+      512,
+      0,
+      513,
+      0,
+      "LATENT"
+    ],
+    [
+      820,
+      486,
+      0,
+      513,
+      1,
+      "VAE"
+    ],
+    [
+      821,
+      513,
+      0,
+      508,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.52.7",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ds": {
+      "scale": 0.8,
+      "offset": [
+        650,
+        -1700
+      ]
+    }
+  },
+  "version": 0.4,
+  "seed_widgets": {
+    "509": 0,
+    "512": 0
+  }
+}
